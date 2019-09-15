@@ -9,6 +9,7 @@ class UserController extends Controller {
       limit: toInt(ctx.query.limit),
       offset: toInt(ctx.query.offset),
     };
+    query.include = { model: ctx.model.Role, as: "role" };
     ctx.body = await ctx.model.User.findAll(query);
   }
 

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /** @type Egg.EggPlugin */
 module.exports = {
@@ -8,16 +8,20 @@ module.exports = {
   // }
   validate: {
     enable: true,
-    package: 'egg-validate',
+    package: "egg-validate",
   },
   sequelize: {
     enable: true,
-    package: 'egg-sequelize',
+    package: "egg-sequelize",
   },
-  security : {
+  security: {
     csrf: {
       enable: false,
     },
-  }
-};
+  },
 
+  jwt: {
+    enable: true,
+    package: "egg-jwt",
+  },
+};
