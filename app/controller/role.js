@@ -8,10 +8,16 @@ class RoleController extends Controller {
     const query = {
       limit: toInt(ctx.query.limit),
       offset: toInt(ctx.query.offset),
-      include: {
-        model: ctx.model.User,
-        as: "user",
-      },
+      include: [
+        {
+          model: ctx.model.User,
+          as: "user",
+        },
+        {
+          model: ctx.model.Permission,
+          as: "permissions",
+        },
+      ],
     };
 
     ctx.body = await ctx.model.Role.findAll(query);

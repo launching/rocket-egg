@@ -18,9 +18,11 @@ module.exports = app => {
     }
   );
   RolePermission.associate = function() {
-    app.model.RolePermission.belongsTo(app.model.Role, { as: "role" });
-    app.model.RolePermission.belongsTo(app.model.Permission, {
-      as: "permission",
+    app.model.Permission.belongsToMany(app.model.Role, {
+      through: "role_permission",
+    });
+    app.model.Role.belongsToMany(app.model.Permission, {
+      through: "role_permission",
     });
   };
   return RolePermission;
