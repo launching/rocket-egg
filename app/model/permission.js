@@ -37,8 +37,6 @@ module.exports = app => {
     app.model.Permission.belongsTo(app.model.Permission, {
       as: "permission",
     });
-
-    
   };
 
   return Permission;

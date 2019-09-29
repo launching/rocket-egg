@@ -8,6 +8,12 @@ class PermissionController extends Controller {
     const query = {
       limit: toInt(ctx.query.limit),
       offset: toInt(ctx.query.offset),
+      include: [
+        {
+          model: ctx.model.Role,
+          as: "roles",
+        },
+      ],
     };
     ctx.body = await ctx.model.Permission.findAll(query);
   }
